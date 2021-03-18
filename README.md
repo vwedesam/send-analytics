@@ -22,7 +22,7 @@ include sendAnalytics.js to your html, you can grab it from npm
 ```
 or from a cdn
 ``` js
-    https://cdn.jsdelivr.net/npm/send-analytics
+   https://cdn.jsdelivr.net/npm/send-analytics@1.0.0/sendAnalytics.min.js
 ```
 
 ## #Usage
@@ -41,6 +41,8 @@ or from a cdn
 ## [React.js Example](https://github.com/vwedesam/send-analytics/blob/main/examples/with%20Js%20Framework.md)
 
 ## #API
+
+> this Lirary uses __[Fetching](https://fetch.spec.whatwg.org/#concept-fetch) algorithm__ for handling http request
 
 ### config([ transitionObject ])
 
