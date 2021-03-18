@@ -1,15 +1,13 @@
 
 ## Send Analytics and Diagnostics to Server Asynchronously
 
-> Web sites often want to send analytics or diagnostics to the server when the user has finished with the page
-
-__sendAnalytics.js__ helps you achieve this by sending data asynchronously from web browsers to a server using ('hidden', 'visible') transition when the user agent has an opportunity to do so, without delaying unload or the next navigation
+__sendAnalytics.js__ is use to schedule asynchronous and non-blocking delivery of data that minimizes resource contention with other time-critical operations, while ensuring that such requests are still processed and delivered to destination.
  This means:
 
   * The data is sent reliably
   * It's sent asynchronously
   * It doesn't impact the loading of the next page
-
+  * this library also support transition
 
 > __Transition__ happens when a user navigates to a __new page__, switches __tabs__, closes the tab, minimizes or closes the __browser__, or, on mobile, switches from the browser to a different app. 
   
@@ -38,30 +36,9 @@ or from a cdn
     
     const analytics = sendAnalytics.config()
                       .send(url, obj);
-
 ```
-
-> send data on visibility state change i.e when the document becomes __visible__ or __hidden__
-
- ``` js   
-    const obj = { 
-               name: 'John doe',
-               metaData: { 
-                    email: "mymail@yahoo.com",
-                    phone: "08080-9898-0000"
-                    }
-               };
-    
-    const url = "http://localhost/api/hello";
-    
-    const analytics = sendAnalytics.config({ when: 'visible' }) // or { when: 'hidden' }
-                      .send(url, obj)
-
-    analytics.once(); // or analytics.repeat();
-
-
-```
-> send data on __Every__ visibility state change i.e when the document becomes __hidden__
+## See [Examples](https://github.com/vwedesam/send-analytics/tree/main/examples)
+## [React.js Example](https://github.com/vwedesam/send-analytics/blob/main/examples/with%20Js%20Framework.md)
 
 ## #API
 
@@ -89,25 +66,8 @@ or from a cdn
 ### onSuccess( [ callback ] )
   * callback < Function >
 > __Note:__ for you to receive a __success__ Event the __onSuccess__ method must come before the __send([ url, data])__ method.
-
-``` js
-
-    const obj = { name: 'John doe' };
-    
-    const url = "https://jsonplaceholder.typicode.com/posts";
-
-    const analytics = sendAnalytics.config()
-    
-    analytics.onSuccess((e)=>{
-            console.log("analytics sent!!")
-    })
-    .send(url, obj);
-    
-    // repeat(), once() can be added to the chain
-
-```
+> see example [onSuccess](https://github.com/vwedesam/send-analytics/blob/main/examples/onSuccess.md)
   
-
 > __Ref  [developer.mozilla.org - sendBeacon](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon)__
 
 ### #License
