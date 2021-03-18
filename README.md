@@ -20,7 +20,7 @@ __sendAnalytics.js__ helps you achieve this by sending data asynchronously from 
 include sendAnalytics.js to your html, you can grab it from npm
 
 ``` js
-    npm install send-analytics
+    npm install sendAnalytics
 ```
 or from a cdn
 ``` js
