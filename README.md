@@ -20,11 +20,11 @@ __sendAnalytics.js__ helps you achieve this by sending data asynchronously from 
 include sendAnalytics.js to your html, you can grab it from npm
 
 ``` js
-    npm install sendAnalytics
+    npm install send-analytics
 ```
 or from a cdn
 ``` js
-    https://cdn.jsdelivr.net/npm/sendAnalytics
+    https://cdn.jsdelivr.net/npm/send-analytics
 ```
 
 ## #Usage
@@ -34,31 +34,16 @@ or from a cdn
     
     const obj = { text: 'Hello world' };
     
-    const url = "http://localhost:3002/api/hello";
+    const url = "http://localhost/api/hello";
     
     const analytics = sendAnalytics.config()
                       .send(url, obj);
 
 ```
 
-> send data on __First__ visibility state change i.e when the document becomes __visible__
+> send data on visibility state change i.e when the document becomes __visible__ or __hidden__
 
  ``` js   
-    const obj = { text: 'Hello world' };
-    
-    const url = "http://localhost:3002/api/hello";
-    
-    const analytics = sendAnalytics.config({ when: 'visible' })
-                      .send(url, obj)
-
-    analytics.once();
-
-
-```
-> send data on __Every__ visibility state change i.e when the document becomes __hidden__
-
-``` js
-
     const obj = { 
                name: 'John doe',
                metaData: { 
@@ -67,15 +52,16 @@ or from a cdn
                     }
                };
     
-    const url = "http://localhost:3002/api/hello";
-
-    const analytics = sendAnalytics.config({ when: 'hidden' })
+    const url = "http://localhost/api/hello";
+    
+    const analytics = sendAnalytics.config({ when: 'visible' }) // or { when: 'hidden' }
                       .send(url, obj)
 
-    analytics.repeat();
+    analytics.once(); // or analytics.repeat();
 
 
 ```
+> send data on __Every__ visibility state change i.e when the document becomes __hidden__
 
 ## #API
 
@@ -99,6 +85,27 @@ or from a cdn
  
 ### repeat()
   * send data on __Every__ visibility state change
+
+### onSuccess( [ callback ] )
+  * callback < Function >
+> __Note:__ for you to receive a __success__ Event the __onSuccess__ method must come before the __send([ url, data])__ method.
+
+``` js
+
+    const obj = { name: 'John doe' };
+    
+    const url = "https://jsonplaceholder.typicode.com/posts";
+
+    const analytics = sendAnalytics.config()
+    
+    analytics.onSuccess((e)=>{
+            console.log("analytics sent!!")
+    })
+    .send(url, obj);
+    
+    // repeat(), once() can be added to the chain
+
+```
   
 
 > __Ref  [developer.mozilla.org - sendBeacon](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon)__
