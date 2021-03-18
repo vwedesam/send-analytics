@@ -1,0 +1,28 @@
+{
+  "name": "send-analytics",
+  "version": "1.0.0",
+  "description": "A js Library for sending analytics and diagnostics data to a server with page transition and visibility ",
+  "main": "sendAnalytics.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "analytics transition",
+    "diagnostics",
+    "async-data",
+    "page-visibility",
+    "send-analytics",
+    "send-diagnostics",
+    "repeat-on-page-transition"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vwedesam/send-analytics.git"
+  },
+  "author": " vwede Sam <eshemiedomisam@yahoo.com> (https://github.com/vwedesam)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vwedesam/send-analytics.git/issues"
+  },
+  "homepage": "https://github.com/vwedesam/send-analytics.git#readme"
+}
