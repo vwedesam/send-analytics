@@ -1,6 +1,6 @@
 ### usage inside js framework
 
-### works for Reactjs,Vuejs and Nextjs
+### Reactjs,Vuejs and Nextjs
 
 ``` js
       
