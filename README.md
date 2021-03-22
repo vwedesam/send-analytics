@@ -38,7 +38,7 @@ or from a cdn
                       .send(url, obj);
 ```
 ## See [Examples](https://github.com/vwedesam/send-analytics/tree/main/examples)
-## [React.js Example](https://github.com/vwedesam/send-analytics/blob/main/examples/with%20Js%20Framework.md)
+### [React.js, Vue.js Next.js Example](https://github.com/vwedesam/send-analytics/blob/main/examples/with%20Js%20Framework.md)
 
 ## #API
 
